@@ -1,0 +1,45 @@
+
+----------------------------------------
+
+This implementation was tested with iris codes from IITD[1] and LG or QSW feature extraction from USIT[2].
+It was executed with Pypy3[3] to achieve a huge speedup in contrast to Python3.
+
+protocolNTRU.py (main):
+- example protocol that shows how to use verification and identification
+
+clientNTRU.py
+- shift/rotate iris code of the probe 
+- encrypt shifted probe
+
+serverNTRU.py
+- database server
+- init database (encrypt all references)
+- handle verification and identification requests
+    - calculate sums of ciphertext blocks
+    - send encrypted sums to ttp
+
+ttpNTRU.py
+- authentication server
+- trusted third party (only party that is in possesion of the secret key to decrypt)
+- system thresholds are set here (computed for LG algorithm)
+- determine Hamming distance of encrypted sum and compare against threshold
+- return comparison decision to server
+
+irisNTRU.py
+- constant values and helper functions for both client and server usage
+- similar to a config file
+
+sortNTRU.py
+- wrapper for iris code rearragement, sort most stable bits to the beginning
+
+biometricNTRU.py
+- implementation of the cryptographic functionalities of NTRU
+
+timingNTRU.py
+- function to measure the execution time
+
+
+------------------------------------------------------------------
+[1] http://www4.comp.polyu.edu.hk/~csajaykr/IITD/Database_Iris.htm
+[2] http://wavelab.at/sources/USIT/
+[3] http://pypy.org/features.html
