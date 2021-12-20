@@ -1,5 +1,10 @@
 # NTRU Homomorphic Encryption for Iris-code Template Protection
 
+### ============ Update ==============
+This implementation with its parameters of the NTRU homomorphic encryption scheme can not be considered as secure anymore. We suggest to use the Stehlé-Steinfeld
+(StSt) version of NTRU within the PALISADE crypto library instead. Their repository can be found at: https://gitlab.com/palisade/palisade-release
+### ==================================
+
 The repository provides a reference implementation for Biometric Template Protection based on NTRU Homomorphic Encryption and Iris-codes. Biometric templates are stored and compared in the encrypted domain. To solve the problem of the computational overload linked to the encryption scheme, an early decision making strategy is implemented. However, in order to improve the recognition accuracy, the most consistent bits of the iris-code are moved to the beginning of the template. This allows an accurate block-wise comparison, thereby reducing the execution time. Hence, the resulting system grants template protection in a computationally efficient way.
 
 
